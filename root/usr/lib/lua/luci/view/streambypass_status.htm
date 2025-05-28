@@ -1,0 +1,17 @@
+<%+header%>
+    <h2>Stream Bypass Status</h2>
+    <div id="stream-table"></div>
+    <script type="text/javascript">
+        fetch('/tmp/streambypass_state.json')
+            .then(r => r.json())
+            .then(data => {
+                const entries = Object.entries(data).sort((a, b) => b[1] - a[1]);
+                let html = '<table class="table"><thead><tr><th>Connection</th><th>Bytes</th></tr></thead><tbody>';
+                entries.forEach(([k, v]) => {
+                    html += `<tr><td>${k}</td><td>${(v / 1024 / 1024).toFixed(2)} MB</td></tr>`;
+                });
+                html += '</tbody></table>';
+                document.getElementById('stream-table').innerHTML = html;
+            });
+    </script>
+    <%+footer%>

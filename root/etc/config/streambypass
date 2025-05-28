@@ -1,0 +1,5 @@
+config streambypass 'settings'
+  option enabled '1'
+  option threshold '5000000'
+  option timeout '600'
+  option subnet '192.168.8.0/24'
