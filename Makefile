@@ -19,7 +19,6 @@ define Package/luci-app-streambypass/description
 endef
 
 define Build/Compile
-  # no compile needed
   true
 endef
 
